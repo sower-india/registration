@@ -1,7 +1,7 @@
 package com.sower.rdbms.pojo;
 
 // default package
-// Generated 4 Jun, 2017 2:12:18 PM by Hibernate Tools 4.0.0
+// Generated 4 Jun, 2017 4:15:39 PM by Hibernate Tools 4.0.0
 
 import java.util.Date;
 import java.util.HashSet;
@@ -28,7 +28,10 @@ public class UserAccess implements java.io.Serializable {
 	public UserAccess() {
 	}
 
-	public UserAccess(Date createdDate, Date updatedDate, char isDeleted) {
+	public UserAccess(String accessName, String accessDisplayName,
+			Date createdDate, Date updatedDate, char isDeleted) {
+		this.accessName = accessName;
+		this.accessDisplayName = accessDisplayName;
 		this.createdDate = createdDate;
 		this.updatedDate = updatedDate;
 		this.isDeleted = isDeleted;

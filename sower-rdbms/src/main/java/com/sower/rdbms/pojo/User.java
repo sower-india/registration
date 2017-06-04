@@ -1,7 +1,7 @@
 package com.sower.rdbms.pojo;
 
 // default package
-// Generated 4 Jun, 2017 2:12:18 PM by Hibernate Tools 4.0.0
+// Generated 4 Jun, 2017 4:15:39 PM by Hibernate Tools 4.0.0
 
 import java.util.Date;
 
@@ -18,9 +18,11 @@ public class User implements java.io.Serializable {
 	private UserAccess userAccess;
 	private String firstName;
 	private String lastName;
-	private Date dob;
-	private long mobile;
 	private String emailId;
+	private long mobile;
+	private Date dob;
+	private String userName;
+	private String password;
 	private Date createdDate;
 	private Date updatedDate;
 	private char isDeleted;
@@ -28,25 +30,32 @@ public class User implements java.io.Serializable {
 	public User() {
 	}
 
-	public User(UserAccess userAccess, Date dob, long mobile, Date createdDate,
-			Date updatedDate, char isDeleted) {
+	public User(UserAccess userAccess, String firstName, String lastName,
+			long mobile, Date dob, String userName, String password,
+			Date createdDate, Date updatedDate, char isDeleted) {
 		this.userAccess = userAccess;
-		this.dob = dob;
+		this.firstName = firstName;
+		this.lastName = lastName;
 		this.mobile = mobile;
+		this.dob = dob;
+		this.userName = userName;
+		this.password = password;
 		this.createdDate = createdDate;
 		this.updatedDate = updatedDate;
 		this.isDeleted = isDeleted;
 	}
 
 	public User(UserAccess userAccess, String firstName, String lastName,
-			Date dob, long mobile, String emailId, Date createdDate,
-			Date updatedDate, char isDeleted) {
+			String emailId, long mobile, Date dob, String userName,
+			String password, Date createdDate, Date updatedDate, char isDeleted) {
 		this.userAccess = userAccess;
 		this.firstName = firstName;
 		this.lastName = lastName;
-		this.dob = dob;
-		this.mobile = mobile;
 		this.emailId = emailId;
+		this.mobile = mobile;
+		this.dob = dob;
+		this.userName = userName;
+		this.password = password;
 		this.createdDate = createdDate;
 		this.updatedDate = updatedDate;
 		this.isDeleted = isDeleted;
@@ -84,12 +93,12 @@ public class User implements java.io.Serializable {
 		this.lastName = lastName;
 	}
 
-	public Date getDob() {
-		return this.dob;
+	public String getEmailId() {
+		return this.emailId;
 	}
 
-	public void setDob(Date dob) {
-		this.dob = dob;
+	public void setEmailId(String emailId) {
+		this.emailId = emailId;
 	}
 
 	public long getMobile() {
@@ -100,12 +109,28 @@ public class User implements java.io.Serializable {
 		this.mobile = mobile;
 	}
 
-	public String getEmailId() {
-		return this.emailId;
+	public Date getDob() {
+		return this.dob;
 	}
 
-	public void setEmailId(String emailId) {
-		this.emailId = emailId;
+	public void setDob(Date dob) {
+		this.dob = dob;
+	}
+
+	public String getUserName() {
+		return this.userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+	public String getPassword() {
+		return this.password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	public Date getCreatedDate() {
