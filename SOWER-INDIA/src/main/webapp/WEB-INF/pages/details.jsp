@@ -4,12 +4,12 @@
 
 <html>
 <head>
-<title>Being Java Guys | Struts Details</title>
+<title>SUCESS</title>
 </head>
 <body>
-	<center>
+	<div style="text-align: center">
 
-		<h2>Being Java Guys | User Details</h2>
+		<h2>Registration Successful</h2>
 		<br /> <br />
 		<table>
 			<tr>
@@ -25,7 +25,7 @@
 				<td>Phone: </td><td><s:property value="phone"/></td>
 			</tr>
 		</table>
-	</center>
+	</div>
 </body>
 </html>
 
