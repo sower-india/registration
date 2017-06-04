@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 4 Jun, 2017 2:12:19 PM by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="UserAccess" table="user_access" catalog="sower">
+        <id name="accessId" type="java.lang.Long">
+            <column name="ACCESS_ID" />
+            <generator class="identity" />
+        </id>
+        <property name="accessName" type="string">
+            <column name="ACCESS_NAME" length="15" />
+        </property>
+        <property name="accessDisplayName" type="string">
+            <column name="ACCESS_DISPLAY_NAME" length="15" />
+        </property>
+        <property name="accessDescription" type="string">
+            <column name="ACCESS_DESCRIPTION" length="500" />
+        </property>
+        <property name="createdDate" type="timestamp">
+            <column name="CREATED_DATE" length="19" not-null="true" />
+        </property>
+        <property name="updatedDate" type="timestamp">
+            <column name="UPDATED_DATE" length="19" not-null="true" />
+        </property>
+        <property name="isDeleted" type="char">
+            <column name="IS_DELETED" length="1" not-null="true" />
+        </property>
+        <set name="users" table="user" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ACCESS_ID" not-null="true" />
+            </key>
+            <one-to-many class="User" />
+        </set>
+    </class>
+</hibernate-mapping>

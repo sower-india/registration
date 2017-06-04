@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 4 Jun, 2017 2:12:19 PM by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="User" table="user" catalog="sower">
+        <id name="userId" type="java.lang.Long">
+            <column name="USER_ID" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="userAccess" class="UserAccess" fetch="select">
+            <column name="ACCESS_ID" not-null="true" />
+        </many-to-one>
+        <property name="firstName" type="string">
+            <column name="FIRST_NAME" length="50" />
+        </property>
+        <property name="lastName" type="string">
+            <column name="LAST_NAME" length="50" />
+        </property>
+        <property name="dob" type="timestamp">
+            <column name="DOB" length="19" not-null="true" />
+        </property>
+        <property name="mobile" type="long">
+            <column name="MOBILE" not-null="true" />
+        </property>
+        <property name="emailId" type="string">
+            <column name="EMAIL_ID" length="100" />
+        </property>
+        <property name="createdDate" type="timestamp">
+            <column name="CREATED_DATE" length="19" not-null="true" />
+        </property>
+        <property name="updatedDate" type="timestamp">
+            <column name="UPDATED_DATE" length="19" not-null="true" />
+        </property>
+        <property name="isDeleted" type="char">
+            <column name="IS_DELETED" length="1" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
