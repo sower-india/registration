@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.opensymphony.xwork2.Action;
 import com.sower.common.ListOptions;
+import com.sower.util.RegistrationUtil;
 
 public class HomeAction implements Action 
 {
@@ -66,7 +67,7 @@ public class HomeAction implements Action
 
 	@Override
 	public String execute() throws Exception {
-//		userAccess =RegistrationUtil.getUserAccessData(); 
+		userAccess =RegistrationUtil.getUserAccessData(); 
 		return "SUCCESS";
 	}
 

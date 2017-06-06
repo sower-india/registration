@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.sower.common.ListOptions;
+import com.sower.rdbms.pojo.UserAccess;
+import com.sower.rdbms.util.HibernateUtil;
 
 public class RegistrationUtil {
 	
@@ -12,7 +14,9 @@ public class RegistrationUtil {
 	{
 		
 //		HibernateUtil 
+		List<UserAccess> userAccessList = HibernateUtil.getUserAccessData();
 		
+		System.out.println(userAccessList);
 		
 		List<ListOptions> userAccess = new ArrayList<ListOptions>();
 		
@@ -30,4 +34,4 @@ public class RegistrationUtil {
 		return userAccess;
 	}
 
-}
+}	
