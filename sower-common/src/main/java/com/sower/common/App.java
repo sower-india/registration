@@ -1,4 +1,4 @@
-package com.sower.rdbms;
+package com.sower.common;
 
 /**
  * Hello world!

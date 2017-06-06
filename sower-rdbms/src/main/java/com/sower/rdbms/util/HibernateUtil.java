@@ -1,9 +1,14 @@
 package com.sower.rdbms.util;
 
+import java.util.List;
+
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
+
+import com.sower.rdbms.pojo.UserAccess;
 
 	public class HibernateUtil {
 	 
@@ -27,5 +32,17 @@ import org.hibernate.cfg.Configuration;
 	 
 	    public static SessionFactory getSessionFactory() {
 	        return sessionFactory;
+	    }
+	    
+	    
+	    public static List<UserAccess> getUserAccessData()
+	    {
+	    	Session session = sessionFactory.openSession();
+	    	
+//	    	String entityName=session.get()
+//	    	session.
+	    	
+	    	return null;
+	    	
 	    }
 }
