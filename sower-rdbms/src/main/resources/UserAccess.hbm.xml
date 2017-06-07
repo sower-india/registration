@@ -3,7 +3,7 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated 4 Jun, 2017 4:15:39 PM by Hibernate Tools 4.0.0 -->
 <hibernate-mapping>
-    <class name="UserAccess" table="user_access" catalog="sower">
+    <class name="com.sower.rdbms.pojo.UserAccess" table="user_access" schema="sower" catalog="sower">
         <id name="accessId" type="java.lang.Long">
             <column name="ACCESS_ID" />
             <generator class="identity" />
@@ -30,7 +30,7 @@
             <key>
                 <column name="ACCESS_ID" not-null="true" />
             </key>
-            <one-to-many class="User" />
+            <one-to-many class="com.sower.rdbms.pojo.User" />
         </set>
     </class>
 </hibernate-mapping>

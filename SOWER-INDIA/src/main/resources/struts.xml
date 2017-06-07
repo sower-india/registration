@@ -13,6 +13,14 @@
 			method="getDetail">
 			<result name="success">WEB-INF/pages/details.jsp</result>
 		</action>
+		<action name="createUserAccess" class="com.sower.actions.CreateUserAction"
+			method="createUserAccess">
+			<result name="success">WEB-INF/pages/CreateUserAccess.jsp</result>
+		</action>
+		<action name="populateUserAccess" class="com.sower.actions.HomeAction"
+			method="populateUserAccess">
+			<result name="success">WEB-INF/pages/form.jsp</result>
+		</action>
 	</package>
 
 </struts>

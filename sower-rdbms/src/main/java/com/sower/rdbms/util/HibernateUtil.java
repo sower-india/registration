@@ -2,6 +2,7 @@ package com.sower.rdbms.util;
 
 import java.util.List;
 
+import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistry;
@@ -35,14 +36,18 @@ import com.sower.rdbms.pojo.UserAccess;
 	    }
 	    
 	    
-	    public static List<UserAccess> getUserAccessData()
+	    @SuppressWarnings("unchecked")
+		public static List<UserAccess> getUserAccessData()
 	    {
 	    	Session session = sessionFactory.openSession();
 	    	
-//	    	String entityName=session.get()
-//	    	session.
+
+	    	String sql = "SELECT * FROM sower.user_access";
+	    	SQLQuery sqlQuery = session.createSQLQuery(sql);
+	    	sqlQuery.addEntity(UserAccess.class);
+	    	List<UserAccess> userAccessList=(List<UserAccess>)sqlQuery.list();
 	    	
-	    	return null;
+	    	return userAccessList;
 	    	
 	    }
 }
