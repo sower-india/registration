@@ -16,21 +16,17 @@ public class RegistrationUtil {
 //		HibernateUtil 
 		List<UserAccess> userAccessList = HibernateUtil.getUserAccessData();
 		
-		System.out.println(userAccessList);
-		
-		List<ListOptions> userAccess = new ArrayList<ListOptions>();
-		
-		ListOptions options = new ListOptions();
-		
-		options.add("1","USER");
-		userAccess.add(options);
-		options = new ListOptions();
-		options.add("2","ADMIN");
-		userAccess.add(options);
-		options = new ListOptions();
-		options.add("3","EMPLOYEE");
-		
-		userAccess.add(options);
+		List<ListOptions> userAccess =null;
+		ListOptions option =null;
+		if(userAccessList!=null && !userAccessList.isEmpty())
+		{
+			userAccess = new ArrayList<ListOptions>();
+			for (UserAccess ua : userAccessList) {
+				option = new ListOptions();
+				option.add(String.valueOf(ua.getAccessId()), ua.getAccessDisplayName());
+				userAccess.add(option);
+			}
+		}
 		return userAccess;
 	}
 

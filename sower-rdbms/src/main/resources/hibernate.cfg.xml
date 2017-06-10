@@ -20,7 +20,7 @@
   <property name="show_sql">true</property>
   <property name="hbm2ddl.auto">validate</property>
   <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-  <property name="hibernate.connection.url">jdbc:mysql://localhost:3306</property>
+  <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/sower</property>
   <property name="hibernate.connection.username">root</property>
   <property name="hibernate.connection.password">password</property>
   <property name="hibernate.connection.pool_size">1</property>

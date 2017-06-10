@@ -3,10 +3,10 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated 4 Jun, 2017 4:15:39 PM by Hibernate Tools 4.0.0 -->
 <hibernate-mapping>
-    <class name="com.sower.rdbms.pojo.UserAccess" table="user_access" schema="sower" catalog="sower">
+    <class name="com.sower.rdbms.pojo.UserAccess" table="user_access" catalog="sower">
         <id name="accessId" type="java.lang.Long">
             <column name="ACCESS_ID" />
-            <generator class="identity" />
+            <generator class="increment" />
         </id>
         <property name="accessName" type="string">
             <column name="ACCESS_NAME" length="15" not-null="true" />

@@ -7,7 +7,7 @@ import com.opensymphony.xwork2.Action;
 import com.sower.rdbms.dao.HibernateDAO;
 import com.sower.rdbms.pojo.UserAccess;
 
-public class CreateUserAction implements Action 
+public class UserAccessAction implements Action 
 {
 
 	private String accessName;
@@ -48,17 +48,17 @@ public class CreateUserAction implements Action
 		return "success";
 	}
 	
-	public String populateUserAccess(){
+	public String populateUserAccess() throws Exception{
 		
 		Date currentDate=Calendar.getInstance().getTime();
 		
 		UserAccess userAccess = new UserAccess();
 		userAccess.setAccessName(getAccessName());
-		userAccess.setAccessDisplayName(getAccessDisplayName());
+		userAccess.setAccessDisplayName(getAccessDisplayName().toUpperCase());
 		userAccess.setAccessDescription(getAccessDescription());
 		userAccess.setCreatedDate(currentDate);
 		userAccess.setUpdatedDate(currentDate);
-		
+		userAccess.setIsDeleted('N');
 		HibernateDAO.save(userAccess);
 		
 		return "success";

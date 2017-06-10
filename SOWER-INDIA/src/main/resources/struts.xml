@@ -6,20 +6,20 @@
 <struts>
 	<constant name="struts.devMode" value="true" />
 	<package name="user" namespace="/" extends="struts-default">
-		<action name="form" class="com.sower.actions.HomeAction">
-			<result name="SUCCESS">WEB-INF/pages/form.jsp</result>
+		<action name="form" class="com.sower.actions.UserAction">
+			<result name="success">WEB-INF/pages/form.jsp</result>
 		</action>
-		<action name="register" class="com.sower.actions.HomeAction"
-			method="getDetail">
+		<action name="register" class="com.sower.actions.UserAction"
+			method="registerUser">
 			<result name="success">WEB-INF/pages/details.jsp</result>
 		</action>
-		<action name="createUserAccess" class="com.sower.actions.CreateUserAction"
+		<action name="createUserAccess" class="com.sower.actions.UserAccessAction"
 			method="createUserAccess">
 			<result name="success">WEB-INF/pages/CreateUserAccess.jsp</result>
 		</action>
-		<action name="populateUserAccess" class="com.sower.actions.HomeAction"
+		<action name="populateUserAccess" class="com.sower.actions.UserAccessAction"
 			method="populateUserAccess">
-			<result name="success">WEB-INF/pages/form.jsp</result>
+			<result name="success">WEB-INF/pages/CreateUserAccess.jsp</result>
 		</action>
 	</package>
 

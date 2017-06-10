@@ -1,12 +1,16 @@
 package com.sower.actions;
 
+import java.util.Date;
 import java.util.List;
 
 import com.opensymphony.xwork2.Action;
 import com.sower.common.ListOptions;
+import com.sower.rdbms.dao.HibernateDAO;
+import com.sower.rdbms.pojo.User;
+import com.sower.util.DateUtil;
 import com.sower.util.RegistrationUtil;
 
-public class HomeAction implements Action 
+public class UserAction implements Action 
 {
 	private String firstName;
 	private String lastName;
@@ -16,6 +20,38 @@ public class HomeAction implements Action
 	private List<ListOptions> userAccess;
 	private String selectedAccess;
 	private String pwd;
+	
+	@Override
+	public String execute() throws Exception {
+		userAccess =RegistrationUtil.getUserAccessData(); 
+		return "success";
+	}
+
+	
+	public String registerUser() throws NumberFormatException, Exception
+	{
+		Date currentDate = DateUtil.getCurrentDate();
+		User user = new User();
+		user.setFirstName(getFirstName());
+		user.setLastName(getLastName());
+		user.setEmailId(getEmailId());
+		user.setMobile(Long.parseLong(getMobile()));
+		user.setUserName(getUserName());
+		user.setUserAccess(HibernateDAO.getEntityById(Long.parseLong(selectedAccess)));
+		user.setPassword(getPwd());
+		user.setCreatedDate(currentDate);
+		user.setUpdatedDate(currentDate);
+		
+		//TODO change the DOB
+		user.setDob(currentDate);
+		
+		user.setIsDeleted('N');
+
+		HibernateDAO.save(user);
+		
+		return "success";
+	}
+	
 	
 	public String getFirstName() {
 		return firstName;
@@ -65,13 +101,6 @@ public class HomeAction implements Action
 		this.pwd = pwd;
 	}
 
-	@Override
-	public String execute() throws Exception {
-		userAccess =RegistrationUtil.getUserAccessData(); 
-		return "SUCCESS";
-	}
-
-	
 	public List<ListOptions> getUserAccess() {
 		return userAccess;
 	}
