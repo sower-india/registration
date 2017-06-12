@@ -6,6 +6,14 @@
 <struts>
 	<constant name="struts.devMode" value="true" />
 	<package name="user" namespace="/" extends="struts-default">
+		<action name="login" class="com.sower.actions.LoginAction">
+			<result name="success">WEB-INF/pages/login.jsp</result>
+		</action>
+		
+		<action name="validateLogin" class="com.sower.actions.LoginAction" method="validateLogin">
+			<result name="success">WEB-INF/pages/ViewQuestions.jsp</result>
+			<result name="error">WEB-INF/pages/login.jsp</result>
+		</action>
 		<action name="form" class="com.sower.actions.UserAction">
 			<result name="success">WEB-INF/pages/form.jsp</result>
 		</action>

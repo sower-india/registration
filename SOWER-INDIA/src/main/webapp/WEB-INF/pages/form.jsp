@@ -1,13 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="/struts-tags" prefix="form"%>
-<!-- 
-<%@ taglib uri="http://struts.apache.org/tags-bean" prefix="bean" %>
-<%@ taglib uri="http://struts.apache.org/tags-html" prefix="html" %>
-<%@ taglib uri="http://struts.apache.org/tags-logic" prefix="logic" %>
-<%@ taglib uri="http://struts.apache.org/tags-tiles" prefix="tiles" %>
- -->
-
 <html>
 <head>
 <title>SOWER-INDIA</title>
@@ -27,8 +20,7 @@
 			<form:password name="pwd" label="Password" />
 			<form:password name="rpw" label="Re-Type-Password" />
 			<form:submit />
-			<form:url action ="login" />
-			
+			<a href="<form:url action="login" />">login</a>
 		</form:form>
 	</div>
 </body>
