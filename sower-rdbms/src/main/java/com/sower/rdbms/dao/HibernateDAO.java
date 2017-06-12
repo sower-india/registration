@@ -66,11 +66,4 @@ public class HibernateDAO<T> {
 		return userAccess;
 	}
 	
-	
-	public static boolean validateUser(final String userName,final String password)
-	{
-		
-		return Boolean.TRUE;
-	}
-	
 }

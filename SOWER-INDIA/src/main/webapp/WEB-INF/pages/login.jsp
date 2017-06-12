@@ -8,6 +8,11 @@
 <body>
 	<div style="text-align: center">
 		<h2>Login</h2>
+		<form:if test="hasActionErrors()">
+			<div class="errors">
+				<form:actionerror/>
+			</div>
+		</form:if>
 		<form:form action="validateLogin">
 			<form:textfield name="userName" label="UserName " />
 			<form:password name="pwd" label="Password " />

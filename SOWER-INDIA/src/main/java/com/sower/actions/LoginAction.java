@@ -1,9 +1,15 @@
 package com.sower.actions;
 
-import com.opensymphony.xwork2.Action;
+import com.opensymphony.xwork2.ActionSupport;
+import com.sower.rdbms.util.HibernateUtil;
 
-public class LoginAction implements Action 
+public class LoginAction extends ActionSupport 
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	private String userName;
 	private String pwd;
 	
@@ -27,7 +33,14 @@ public class LoginAction implements Action
 
 	public String validateLogin() 
 	{
+		boolean isValidUser=HibernateUtil.validateUser(getUserName(), getPwd());
+		if(isValidUser)
+		{
 		return "success";
+		}else{
+			addActionError("User:"+getUserName()+" is invalid");
+			return "failure";
+		}
 	}
 	
 	
@@ -35,4 +48,21 @@ public class LoginAction implements Action
 	public String execute() throws Exception {
 		return "success";
 	}
+	
+	
+	
+	@Override
+	public void validate() {
+		// TODO Auto-generated method stub
+		super.validate();
+	}
+	
+	
+//	public void validate(){
+//		if("mkyong".equals(getUsername())){
+//			addActionMessage("You are valid user!");
+//		}else{
+//			addActionError("I don't know you, dont try to hack me!");
+//		}
+//	}
 }

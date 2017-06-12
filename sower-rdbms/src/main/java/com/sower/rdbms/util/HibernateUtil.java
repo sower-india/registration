@@ -1,5 +1,6 @@
 package com.sower.rdbms.util;
 
+import java.math.BigInteger;
 import java.util.List;
 
 import org.hibernate.SQLQuery;
@@ -42,12 +43,36 @@ import com.sower.rdbms.pojo.UserAccess;
 	    	Session session = sessionFactory.openSession();
 	    	
 
-	    	String sql = "SELECT * FROM sower.user_access";
+	    	String sql = "SELECT * FROM sower.user_access where is_deleted ='N'";
 	    	SQLQuery sqlQuery = session.createSQLQuery(sql);
 	    	sqlQuery.addEntity(UserAccess.class);
 	    	List<UserAccess> userAccessList=(List<UserAccess>)sqlQuery.list();
 	    	
 	    	return userAccessList;
+	    	
+	    }
+	    
+	    public static boolean validateUser(final String userName,final String password)
+		{
+	    	
+	    	boolean isValidUser=Boolean.FALSE;
+	    	Session session = sessionFactory.openSession();
+
+	    	String sql = "SELECT count(*) FROM sower.user  where user_name ='"+userName+"' and "+" password='"+password+"'";
+	    	SQLQuery sqlQuery = session.createSQLQuery(sql);
+//	    	sqlQuery.addEntity(User.class);
+	    	Object o=sqlQuery.uniqueResult();
+	    	
+	    	if(o!=null){
+	    		
+	    		int i = ((BigInteger)o).intValue();
+	    		System.out.println("i===="+i);
+	    		if(i!=0){
+	    		isValidUser=Boolean.TRUE;
+	    		}
+	    	}
+	    	
+	    	return isValidUser;
 	    	
 	    }
 	    

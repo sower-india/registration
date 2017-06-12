@@ -49,6 +49,9 @@ public class UserAction implements Action
 
 		HibernateDAO.save(user);
 		
+		System.out.println("USER ID:"+user.getUserId());
+		
+		
 		return "success";
 	}
 	
