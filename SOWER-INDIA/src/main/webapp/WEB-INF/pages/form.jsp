@@ -20,7 +20,8 @@
 			<form:password name="pwd" label="Password" />
 			<form:password name="rpw" label="Re-Type-Password" />
 			<form:submit />
-			<a href="<form:url action="login" />">login</a>
+			<a href="<form:url action="login" />">login</a><br>
+			<a href="<form:url action="adminPage" />">View Admin Page</a>
 		</form:form>
 	</div>
 </body>

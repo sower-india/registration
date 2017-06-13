@@ -14,6 +14,7 @@
 			<form:textfield name="accessDisplayName" label="Access DisplayName " />
 			<form:textfield name="accessDescription" label="Access Description " />
 			<form:submit />
+			<a href="<form:url action="adminPage" />">View Admin Page</a>
 		</form:form>
 	</div>
 </body>

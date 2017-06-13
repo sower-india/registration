@@ -1,5 +1,10 @@
 package com.sower.actions;
+import java.util.Calendar;
+import java.util.Date;
+
 import com.opensymphony.xwork2.Action;
+import com.sower.rdbms.dao.HibernateDAO;
+import com.sower.rdbms.pojo.Category;
 
 public class CategoryAction implements Action 
 {
@@ -33,22 +38,22 @@ public class CategoryAction implements Action
 
 	@Override
 	public String execute() throws Exception {
-		// TODO Auto-generated method stub
 		return null;
 	}
 	
-	public String populateCategory() 
+	public String populateCategory() throws Exception 
 	{
-//Date currentDate=Calendar.getInstance().getTime();
+		Date currentDate=Calendar.getInstance().getTime();
 		
-//		UserAccess userAccess = new UserAccess();
-//		userAccess.setAccessName(getAccessName());
-//		userAccess.setAccessDisplayName(getAccessDisplayName().toUpperCase());
-//		userAccess.setAccessDescription(getAccessDescription());
-//		userAccess.setCreatedDate(currentDate);
-//		userAccess.setUpdatedDate(currentDate);
-//		userAccess.setIsDeleted('N');
-//		HibernateDAO.save(userAccess);
+		Category category = new Category();
+		category.setCategoryName(getCategoryName());
+		category.setCategoryDescrption(getCategoryDescription());
+		category.setDisplayCategoryName(getDisplayCategoryName());
+		category.setCreatedDate(currentDate);
+		category.setUpdatedDate(currentDate);
+		category.setIsDeleted('N');
+		
+		HibernateDAO.save(category);
 		
 		return "success";
 	}

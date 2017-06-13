@@ -12,7 +12,7 @@
 
 	<package name="user" namespace="/" extends="struts-default">
 		<action name="adminPage">
-			<result>WEB-INF/pages/ViewAdmin.jsp</result>
+			<result name="success">WEB-INF/pages/ViewAdmin.jsp</result>
 		</action>
 		<action name="login" class="com.sower.actions.LoginAction">
 			<result name="success">WEB-INF/pages/login.jsp</result>

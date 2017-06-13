@@ -11,7 +11,7 @@
 	<package name="questions" namespace="/" extends="struts-default">
 
 		<action name="createCategory">
-			<result>WEB-INF/pages/CreateCategory.jsp</result>
+			<result name="success">WEB-INF/pages/CreateCategory.jsp</result>
 		</action>
 
 		<action name="populateCategory" class="com.sower.actions.CategoryAction"
