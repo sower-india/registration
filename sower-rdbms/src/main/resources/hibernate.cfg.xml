@@ -28,5 +28,7 @@
   
   <mapping class="com.sower.rdbms.pojo.User" resource="User.hbm.xml"/>
   <mapping class="com.sower.rdbms.pojo.UserAccess" resource="UserAccess.hbm.xml"/>
+  <mapping class="com.sower.rdbms.pojo.Category" resource="Category.hbm.xml"/>
+  <mapping class="com.sower.rdbms.pojo.Questions" resource="Questions.hbm.xml"/>
  </session-factory>
 </hibernate-configuration>
