@@ -9,38 +9,57 @@
 	<constant name="struts.custom.i18n.resources" value="global" />
 
 	<package name="questions" namespace="/" extends="struts-default">
+
+		<action name="createCategory">
+			<result>WEB-INF/pages/CreateCategory.jsp</result>
+		</action>
+
+		<action name="populateCategory" class="com.sower.actions.CategoryAction"
+			method="populateCategory">
+			<result name="success">WEB-INF/pages/CreateCategory.jsp</result>
+			<result name="failure">WEB-INF/pages/CreateCategory.jsp</result>
+		</action>
+
 		<action name="AddQuestion" class="com.sower.actions.QuestionsAction"
 			method="viewAddQuestion">
 			<result name="success">WEB-INF/pages/AddQuestions.jsp</result>
 			<result name="failure">WEB-INF/pages/ViewQuestions.jsp</result>
 		</action>
-		
+
 		<action name="viewFarmerQuestions" class="com.sower.actions.QuestionsAction"
 			method="viewFarmerQuestions">
-			<result name="success">WEB-INF/pages/questions/ViewFarmerQuestions.jsp</result>
-			<result name="failure">WEB-INF/pages/questions/ViewFarmerQuestions.jsp</result>
+			<result name="success">WEB-INF/pages/questions/ViewFarmerQuestions.jsp
+			</result>
+			<result name="failure">WEB-INF/pages/questions/ViewFarmerQuestions.jsp
+			</result>
 		</action>
 		<action name="displayFarmerQuestion" class="com.sower.actions.QuestionsAction"
 			method="displayFarmerQuestion">
-			<result name="success">WEB-INF/pages/questions/DisplayFarmerQuestions.jsp</result>
-			<result name="failure">WEB-INF/pages/questions/DisplayFarmerQuestions.jsp</result>
+			<result name="success">WEB-INF/pages/questions/DisplayFarmerQuestions.jsp
+			</result>
+			<result name="failure">WEB-INF/pages/questions/DisplayFarmerQuestions.jsp
+			</result>
 		</action>
-		
-		
-		
-		
+
+
+
+
 		<action name="viewTransportQuestions" class="com.sower.actions.QuestionsAction"
 			method="viewTransportQuestions">
-			<result name="success">WEB-INF/pages/questions/ViewTransportQuestions.jsp</result>
-			<result name="failure">WEB-INF/pages/questions/ViewTransportQuestions.jsp</result>
+			<result name="success">WEB-INF/pages/questions/ViewTransportQuestions.jsp
+			</result>
+			<result name="failure">WEB-INF/pages/questions/ViewTransportQuestions.jsp
+			</result>
 		</action>
-		
+
 		<action name="viewConsumerQuestions" class="com.sower.actions.QuestionsAction"
 			method="viewConsumerQuestions">
-			<result name="success">WEB-INF/pages/questions/ViewConsumerQuestions.jsp</result>
-			<result name="failure">WEB-INF/pages/questions/ViewConsumerQuestions.jsp</result>
+			<result name="success">WEB-INF/pages/questions/ViewConsumerQuestions.jsp
+			</result>
+			<result name="failure">WEB-INF/pages/questions/ViewConsumerQuestions.jsp
+			</result>
 		</action>
-		
+
 
 		<action name="fileUploadQuestions" class="com.sower.actions.FileUploadAction">
 			<interceptor-ref name="exception" />

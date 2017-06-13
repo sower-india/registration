@@ -9,10 +9,17 @@
 <body>
 	<div style="text-align: center">
 		<h2>User Access Creation</h2>
-		<form:form action="populateUserAccess">
-			<form:textfield name="accessName" label="Access Name " />
-			<form:textfield name="accessDisplayName" label="Access DisplayName " />
-			<form:textfield name="accessDescription" label="Access Description " />
+		
+		<form:if test="hasActionErrors()">
+			<div class="errors">
+				<form:actionerror/>
+			</div>
+		</form:if>
+		
+		<form:form action="populateCategory">
+			<form:textfield name="categoryName" label="Category Name " />
+			<form:textfield name="displayCategoryName" label="Display Category Name " />
+			<form:textfield name="categoryDescription" label="Category Description " />
 			<form:submit />
 		</form:form>
 	</div>

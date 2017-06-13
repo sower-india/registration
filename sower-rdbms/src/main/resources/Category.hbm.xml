@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 13 Jun, 2017 5:10:23 PM by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="com.sower.rdbms.pojo.Category" table="category" catalog="sower">
+        <id name="categoryId" type="java.lang.Long">
+            <column name="CATEGORY_ID" />
+            <generator class="increment" />
+        </id>
+        <property name="categoryName" type="string">
+            <column name="CATEGORY_NAME" length="50" not-null="true" />
+        </property>
+        <property name="displayCategoryName" type="string">
+            <column name="DISPLAY_CATEGORY_NAME" length="50" not-null="true" />
+        </property>
+        <property name="categoryDescrption" type="string">
+            <column name="CATEGORY_DESCRPTION" length="100" />
+        </property>
+        <property name="createdDate" type="timestamp">
+            <column name="CREATED_DATE" length="19" not-null="true" />
+        </property>
+        <property name="updatedDate" type="timestamp">
+            <column name="UPDATED_DATE" length="19" not-null="true" />
+        </property>
+        <property name="isDeleted" type="char">
+            <column name="IS_DELETED" length="1" not-null="true" />
+        </property>
+        <property name="createdUserId" type="java.lang.Long">
+            <column name="CREATED_USER_ID" />
+        </property>
+        <set name="questionses" table="questions" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="CATEGORY_ID" not-null="true" />
+            </key>
+            <one-to-many class="Questions" />
+        </set>
+    </class>
+</hibernate-mapping>
