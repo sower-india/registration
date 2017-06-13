@@ -8,10 +8,10 @@ public class Person {
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
-	public String getUserId() {
+	public long getUserId() {
 		return userId;
 	}
-	public void setUserId(String userId) {
+	public void setUserId(long userId) {
 		this.userId = userId;
 	}
 	public String getFirstName() {
@@ -27,7 +27,7 @@ public class Person {
 		this.lastName = lastName;
 	}
 	private String userName;
-	private String userId;
+	private long userId;
 
 	private String firstName;
 	private String lastName;

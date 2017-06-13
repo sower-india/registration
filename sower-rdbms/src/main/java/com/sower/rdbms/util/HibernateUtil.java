@@ -52,27 +52,25 @@ import com.sower.rdbms.pojo.UserAccess;
 	    	
 	    }
 	    
-	    public static boolean validateUser(final String userName,final String password)
+	    public static long validateUser(final String userName,final String password)
 		{
 	    	
-	    	boolean isValidUser=Boolean.FALSE;
+	    	long userId=-1;
 	    	Session session = sessionFactory.openSession();
 
-	    	String sql = "SELECT count(*) FROM sower.user  where user_name ='"+userName+"' and "+" password='"+password+"'";
+	    	String sql = "SELECT user_id FROM sower.user  where user_name ='"+userName+"' and "+" password='"+password+"'";
 	    	SQLQuery sqlQuery = session.createSQLQuery(sql);
 //	    	sqlQuery.addEntity(User.class);
+	    	
 	    	Object o=sqlQuery.uniqueResult();
 	    	
 	    	if(o!=null){
 	    		
-	    		int i = ((BigInteger)o).intValue();
-	    		System.out.println("i===="+i);
-	    		if(i!=0){
-	    		isValidUser=Boolean.TRUE;
-	    		}
+	    		userId = ((BigInteger)o).longValue();
+	    		System.out.println("i===="+userId);
 	    	}
 	    	
-	    	return isValidUser;
+	    	return userId;
 	    	
 	    }
 	    

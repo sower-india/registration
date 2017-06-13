@@ -17,10 +17,13 @@
 			</a>
 		</form:if>
 		
-		<form:form action="">
-			<a href="<form:url action="viewFarmerQuestions" />">Farmer Questions</a><br/>
-			<a href="<form:url action="viewTransportQuestions" />">Transport Questions</a><br/>
-			<a href="<form:url action="viewConsumerQuestions" />">Consumer Questions</a><br/>
+		<form:form action="transportFileUploadQuestions" namespace="/" method="POST" enctype="multipart/form-data">
+			<a href="<form:url action="displayTransportQuestion" />">Transport Questions</a>
+			<h1>OR</h1>
+			<a href="<form:url action="addTransportQuestion" />">Add Transport Question</a> <br />
+			<h1>OR</h1>
+			<form:file name="TransportFileUpload" label="Select Transport File to upload" size="40" /> <br />
+			<form:submit value="submit" name="submit" />
 		</form:form>
 	</div>
 </body>

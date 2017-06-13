@@ -11,6 +11,23 @@ public class QuestionsAction implements Action
 		return null;
 	}
 	
+	public String viewFarmerQuestions()
+	{
+		return "success";
+	}
+	
+	public String viewTransportQuestions()
+	{
+		return "success";
+	}
+	
+	public String viewConsumerQuestions()
+	{
+		return "success";
+	}
+	
+	
+	
 	public String viewAddQuestion()
 	{
 		return "success";

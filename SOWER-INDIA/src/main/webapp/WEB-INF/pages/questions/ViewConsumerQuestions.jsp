@@ -9,7 +9,7 @@
 <body>
 	<div style="text-align: center">
 		<h2>Select Questions Category</h2>
-		
+
 		<form:if test="#session.SESSION_USER.userName != null">
 			<a href="#" class="dropdown-toggle" data-toggle="dropdown"> <b>
 			<form:property value="%{#session.SESSION_USER.userName}" />
@@ -17,10 +17,13 @@
 			</a>
 		</form:if>
 		
-		<form:form action="">
-			<a href="<form:url action="viewFarmerQuestions" />">Farmer Questions</a><br/>
-			<a href="<form:url action="viewTransportQuestions" />">Transport Questions</a><br/>
-			<a href="<form:url action="viewConsumerQuestions" />">Consumer Questions</a><br/>
+		<form:form action="consumerFileUploadQuestions" namespace="/" method="POST" enctype="multipart/form-data">
+			<a href="<form:url action="displayConsumerQuestion" />">Consumer Questions</a>
+			<h1>OR</h1>
+			<a href="<form:url action="addConsumerQuestion" />">Add Consumer Question</a> <br />
+			<h1>OR</h1>
+			<form:file name="consumerFileUpload" label="Select Consumer File to upload" size="40" /> <br />
+			<form:submit value="submit" name="submit" />
 		</form:form>
 	</div>
 </body>

@@ -5,46 +5,18 @@
 
 <struts>
 	<constant name="struts.devMode" value="true" />
-	
+
 	<constant name="struts.custom.i18n.resources" value="global" />
-
-	<package name="questions" namespace="/" extends="struts-default">
-	<action name="AddQuestion" class="com.sower.actions.QuestionsAction" 
-	method="viewAddQuestion">
-	 <result name="success">WEB-INF/pages/AddQuestions.jsp</result>
-	 <result name="failure">WEB-INF/pages/ViewQuestions.jsp</result>
-	</action>
 	
-	<action name="fileUploadQuestions" class="com.sower.actions.FileUploadAction">
-	    <interceptor-ref name="exception"/>
-            <interceptor-ref name="i18n"/>
-            <interceptor-ref name="fileUpload">
-       		<param name="allowedTypes">text/plain</param>
-       		<param name="maximumSize">10240</param>
-  	    </interceptor-ref>
-            <interceptor-ref name="params">
-                <param name="excludeParams">dojo\..*,^struts\..*</param>
-            </interceptor-ref>
-            <interceptor-ref name="validation">
-                <param name="excludeMethods">input,back,cancel,browse</param>
-            </interceptor-ref>
-            <interceptor-ref name="workflow">
-                <param name="excludeMethods">input,back,cancel,browse</param>
-            </interceptor-ref>
-
-	    <result name="success">WEB-INF/pages/ViewQuestions.jsp</result>
-	    <result name="input">WEB-INF/pages/ViewQuestions.jsp</result>
-
-	</action>
-	
-	</package>
+	<include file="struts-questions.xml"></include>
 	
 	<package name="user" namespace="/" extends="struts-default">
 		<action name="login" class="com.sower.actions.LoginAction">
 			<result name="success">WEB-INF/pages/login.jsp</result>
 		</action>
-		
-		<action name="validateLogin" class="com.sower.actions.LoginAction" method="validateLogin">
+
+		<action name="validateLogin" class="com.sower.actions.LoginAction"
+			method="validateLogin">
 			<result name="success">WEB-INF/pages/ViewQuestions.jsp</result>
 			<result name="failure">WEB-INF/pages/login.jsp</result>
 		</action>
