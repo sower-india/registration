@@ -2,12 +2,17 @@ package com.sower.actions;
 import java.util.Calendar;
 import java.util.Date;
 
-import com.opensymphony.xwork2.Action;
+import com.opensymphony.xwork2.ActionSupport;
 import com.sower.rdbms.dao.HibernateDAO;
 import com.sower.rdbms.pojo.Category;
+import com.sower.rdbms.util.HibernateUtil;
 
-public class CategoryAction implements Action 
+public class CategoryAction extends ActionSupport 
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String categoryName;
 	private String displayCategoryName;
 	private String categoryDescription;
@@ -43,6 +48,10 @@ public class CategoryAction implements Action
 	
 	public String populateCategory() throws Exception 
 	{
+		
+		long categoryId=HibernateUtil.validateCategory(getCategoryName());
+		if(categoryId==-1)
+		{
 		Date currentDate=Calendar.getInstance().getTime();
 		
 		Category category = new Category();
@@ -55,6 +64,10 @@ public class CategoryAction implements Action
 		
 		HibernateDAO.save(category);
 		
+		addActionMessage("Succesfully Created category: "+getCategoryName());
+		}else{
+			addActionMessage("Already Category : "+getCategoryName()+" exist");
+		}
 		return "success";
 	}
 

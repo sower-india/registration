@@ -16,11 +16,18 @@
 			</div>
 		</form:if>
 		
+		<form:if test="hasActionMessages()">
+			<div class="msgs">
+				<form:actionmessage/>
+			</div>
+		</form:if>
+		
 		<form:form action="populateCategory">
 			<form:textfield name="categoryName" label="Category Name " />
 			<form:textfield name="displayCategoryName" label="Display Category Name " />
 			<form:textfield name="categoryDescription" label="Category Description " />
-			<form:submit />
+			<form:submit/>
+			<a href="<form:url action="adminPage" />">View Admin Page</a>
 		</form:form>
 	</div>
 </body>

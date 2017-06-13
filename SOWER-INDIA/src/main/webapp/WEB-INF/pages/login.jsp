@@ -16,7 +16,7 @@
 		<form:form action="validateLogin">
 			<form:textfield name="userName" label="UserName " />
 			<form:password name="pwd" label="Password " />
-			<form:submit />
+			<form:submit/>
 			<a href="<form:url action="adminPage" />">View Admin Page</a>
 		</form:form>
 	</div>
