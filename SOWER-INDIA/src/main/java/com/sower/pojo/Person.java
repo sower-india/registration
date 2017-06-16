@@ -2,6 +2,26 @@ package com.sower.pojo;
 
 public class Person {
 	
+	
+	private long userId;
+	private String userName;
+
+	private String firstName;
+	private String lastName;
+
+	private String userType;
+	
+	//This method will be used to display the list
+	
+	public String getUserType() {
+		return userType;
+	}
+	public void setUserType(String userType) {
+		this.userType = userType;
+	}
+	public String getDisplayName() {
+		return firstName+","+lastName;
+	}
 	public String getUserName() {
 		return userName;
 	}
@@ -26,13 +46,4 @@ public class Person {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-	private String userName;
-	private long userId;
-
-	private String firstName;
-	private String lastName;
-
-	
-	
-	
 }

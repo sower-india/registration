@@ -16,12 +16,12 @@
 			</a>
 		</form:if>
 		
-		<form:form action="farmerFileUploadQuestions" namespace="/" method="POST" enctype="multipart/form-data">
-			<a href="<form:url action="displayFarmerQuestion" />">View Farmer Questions</a> <br/>
-			<b>OR</b> <br/>
-			<a href="<form:url action="addFarmerQuestion" />">Add Farmer Question</a> <br />
-			<b>OR</b><br/>
-			<form:file name="farmerFileUpload" label="Select former File to upload" size="40" /> <br />
+		<form:form action="questionsUpload" namespace="/" method="POST" enctype="multipart/form-data">
+		
+		<form:select label="Farmer" headerKey="-1"
+				headerValue="Select Farmer" list="userList" listKey="displayName" listValue="userId"
+				name="selectedUser" />
+		
 			<form:submit value="submit" name="submit" />
 		</form:form>
 	</div>

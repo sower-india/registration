@@ -33,39 +33,32 @@
 			<result name="failure">WEB-INF/pages/questions/ViewFarmerQuestions.jsp
 			</result>
 		</action>
-		<action name="displayFarmerQuestion" class="com.sower.actions.QuestionsAction"
+		
+		
+		<action name="displayFarmerQuestion" class="com.sower.actions.DisplayQuestionsAction"
 			method="displayFarmerQuestion">
-			<result name="success">WEB-INF/pages/questions/DisplayFarmerQuestions.jsp
-			</result>
-			<result name="failure">WEB-INF/pages/questions/DisplayFarmerQuestions.jsp
-			</result>
+			<result name="success">WEB-INF/pages/questions/DisplayFarmerQuestions.jsp </result>
+			<result name="failure">WEB-INF/pages/questions/DisplayFarmerQuestions.jsp </result>
 		</action>
-
-
-
 
 		<action name="viewTransportQuestions" class="com.sower.actions.QuestionsAction"
 			method="viewTransportQuestions">
-			<result name="success">WEB-INF/pages/questions/ViewTransportQuestions.jsp
-			</result>
-			<result name="failure">WEB-INF/pages/questions/ViewTransportQuestions.jsp
-			</result>
+			<result name="success">WEB-INF/pages/questions/ViewTransportQuestions.jsp </result>
+			<result name="failure">WEB-INF/pages/questions/ViewTransportQuestions.jsp </result>
 		</action>
 
 		<action name="viewConsumerQuestions" class="com.sower.actions.QuestionsAction"
 			method="viewConsumerQuestions">
-			<result name="success">WEB-INF/pages/questions/ViewConsumerQuestions.jsp
-			</result>
-			<result name="failure">WEB-INF/pages/questions/ViewConsumerQuestions.jsp
-			</result>
+			<result name="success">WEB-INF/pages/questions/ViewConsumerQuestions.jsp </result>
+			<result name="failure">WEB-INF/pages/questions/ViewConsumerQuestions.jsp </result>
 		</action>
 
 
-		<action name="fileUploadQuestions" class="com.sower.actions.FileUploadAction">
+		<action name="farmerFileUploadQuestions" class="com.sower.actions.FileUploadAction" method="farmerFileUploadQuestions">
 			<interceptor-ref name="exception" />
 			<interceptor-ref name="i18n" />
 			<interceptor-ref name="fileUpload">
-				<param name="allowedTypes">text/plain</param>
+				<param name="allowedTypes">text/plain,text/csv,text/CSV,csv,application/vnd.ms-excel</param>
 				<param name="maximumSize">10240</param>
 			</interceptor-ref>
 			<interceptor-ref name="params">
@@ -78,8 +71,8 @@
 				<param name="excludeMethods">input,back,cancel,browse</param>
 			</interceptor-ref>
 
-			<result name="success">WEB-INF/pages/ViewQuestions.jsp</result>
-			<result name="input">WEB-INF/pages/ViewQuestions.jsp</result>
+			<result name="success">WEB-INF/pages/questions/ViewFarmerQuestions.jsp</result>
+			<result name="input">WEB-INF/pages/questions/ViewFarmerQuestions.jsp</result>
 
 		</action>
 

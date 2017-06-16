@@ -14,6 +14,10 @@
 			<form:textfield name="emailId" label="Email " />
 			<form:textfield name="mobile" label="Mobile " />
 			<form:textfield name="userName" label="UserName" />
+			<form:textfield name="city" label="City" />
+			<form:textfield name="State" label="State" />
+			<form:textfield name="Country" label="Country" value="INDIA"/>
+			<form:textfield name="Zipcode" label="ZipCode" />
 			<form:select label="UserAccess" headerKey="-1"
 				headerValue="Select User Access" list="userAccess" listKey="key" listValue="value"
 				name="selectedAccess" />

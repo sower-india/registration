@@ -5,6 +5,7 @@ import java.util.Map;
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.opensymphony.xwork2.ActionSupport;
+import com.sower.common.constants.CommonConstants;
 import com.sower.pojo.Person;
 import com.sower.rdbms.util.HibernateUtil;
 
@@ -41,7 +42,7 @@ public class LoginAction extends ActionSupport implements SessionAware
 			user=new Person();
 			user.setUserName(userName);
 			user.setUserId(userId);
-			getUserSession().put("SESSION_USER", user);
+			userSession.put(CommonConstants.KEY_SESSION_USER, user);
 		return "success";
 		}else{
 			addActionError("User: "+getUserName()+ " is invalid");

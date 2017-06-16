@@ -33,7 +33,7 @@
             <key>
                 <column name="CATEGORY_ID" not-null="true" />
             </key>
-            <one-to-many class="Questions" />
+            <one-to-many class="com.sower.rdbms.pojo.Questions" />
         </set>
     </class>
 </hibernate-mapping>

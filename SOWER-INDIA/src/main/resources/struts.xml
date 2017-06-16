@@ -28,7 +28,10 @@
 		</action>
 		<action name="register" class="com.sower.actions.UserAction"
 			method="registerUser">
-			<result name="success">WEB-INF/pages/login.jsp</result>
+			<interceptor-ref name="params" />
+			<interceptor-ref name="prepare" />
+			<interceptor-ref name="basicStack" />
+			<result name="success">WEB-INF/pages/form.jsp</result>
 		</action>
 		<action name="createUserAccess" class="com.sower.actions.UserAccessAction"
 			method="createUserAccess">

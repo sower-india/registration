@@ -10,6 +10,8 @@ import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 
+import com.sower.rdbms.pojo.Category;
+import com.sower.rdbms.pojo.User;
 import com.sower.rdbms.pojo.UserAccess;
 
 	public class HibernateUtil {
@@ -35,7 +37,6 @@ import com.sower.rdbms.pojo.UserAccess;
 	    public static SessionFactory getSessionFactory() {
 	        return sessionFactory;
 	    }
-	    
 	    
 	    @SuppressWarnings("unchecked")
 		public static List<UserAccess> getUserAccessData()
@@ -74,4 +75,128 @@ import com.sower.rdbms.pojo.UserAccess;
 	    	
 	    }
 	    
+	    public static long validateCategory(final String categoryName)
+		{
+	    	
+	    	long categoryId=-1;
+	    	Session session = sessionFactory.openSession();
+
+	    	String sql = "SELECT category_id FROM sower.category  where category_name ='"+categoryName+"'";
+	    	SQLQuery sqlQuery = session.createSQLQuery(sql);
+//	    	sqlQuery.addEntity(User.class);
+	    	
+	    	Object o=sqlQuery.uniqueResult();
+	    	
+	    	if(o!=null){
+	    		
+	    		categoryId = ((BigInteger)o).longValue();
+	    		System.out.println("i===="+categoryId);
+	    	}
+	    	
+	    	return categoryId;
+	    	
+	    }
+	    
+	    public static long validateQuestion(final String displayQuestion)
+		{
+	    	
+	    	long questionId=-1;
+	    	Session session = sessionFactory.openSession();
+
+	    	String sql = "SELECT QUESTION_ID FROM sower.questions  where category_name ='"+displayQuestion+"'";
+	    	SQLQuery sqlQuery = session.createSQLQuery(sql);
+//	    	sqlQuery.addEntity(User.class);
+	    	
+	    	Object o=sqlQuery.uniqueResult();
+	    	
+	    	if(o!=null){
+	    		
+	    		questionId = ((BigInteger)o).longValue();
+	    		System.out.println("i===="+questionId);
+	    	}
+	    	
+	    	return questionId;
+	    	
+	    }
+	    
+	    public static Category getCategory(final String categoryName)
+	  		{
+	  	    	
+	  	    	Category category=null;
+	  	    	Session session = sessionFactory.openSession();
+
+	  	    	String sql = "SELECT * FROM sower.category  where category_name ='"+categoryName.toUpperCase()+"'";
+	  	    	SQLQuery sqlQuery = session.createSQLQuery(sql);
+	  	    	sqlQuery.addEntity(Category.class);
+	  	    	
+	  	    	Object o=sqlQuery.uniqueResult();
+	  	    	
+	  	    	if(o!=null){
+	  	    		
+	  	    		category = (Category)o;
+	  	    		System.out.println("i===="+category);
+	  	    	}
+	  	    	
+	  	    	return category;
+	  	    }  
+	    
+	    public static User getUserById(final long categoryName)
+  		{
+  	    	
+  	    	User user=null;
+  	    	Session session = sessionFactory.openSession();
+
+  	    	String sql = "SELECT * FROM sower.user  where user_Id ="+categoryName;
+  	    	SQLQuery sqlQuery = session.createSQLQuery(sql);
+  	    	sqlQuery.addEntity(User.class);
+  	    	
+  	    	Object o=sqlQuery.uniqueResult();
+  	    	
+  	    	if(o!=null){
+  	    		
+  	    		user = (User)o;
+  	    		System.out.println("i===="+user);
+  	    	}
+  	    	
+  	    	return user;
+  	    }
+	    
+	    public static User getEntityById(long id) throws Exception
+		{
+	    	
+			SessionFactory sf = HibernateUtil.getSessionFactory();
+			Session session = sf.openSession();
+			User user = null;
+			
+			try {
+			  try {
+				  user= (User) session.get(User.class, id);
+			  } catch (Exception ex) {
+			    // Log the exception here
+			    throw ex;
+			  }
+			} finally {
+				if(session!=null)
+				{
+			  session.close();
+				}
+			}
+			
+			return user;
+		}
+	    
+	    @SuppressWarnings("unchecked")
+	    public static List<User> getAllUsersByAccessName(final String accessType)
+	    {
+	    	Session session = sessionFactory.openSession();
+
+	    	String sql = "select * from user u join user_access ua on u.access_id=ua.access_id where access_name = '"+accessType+"';";
+	    	SQLQuery sqlQuery = session.createSQLQuery(sql);
+	    	sqlQuery.addEntity(User.class);
+	    	
+			List<User> users=(List<User>)sqlQuery.list();
+	    	
+	    	return users;
+	    	
+	    }
 }

@@ -15,15 +15,16 @@ public class Questions implements java.io.Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	private Long questionId;
-	private User user;
+	private Long userId;
 	private Category category;
 	private String displayQuestion;
 	private String questionDescription;
 	private char isRadio;
-	private String summary;
+	private char displaySummary;
 	private Date createdDate;
 	private Date updatedDate;
 	private char isDeleted;
+	private String userType;
 
 	public Questions() {
 	}
@@ -38,18 +39,31 @@ public class Questions implements java.io.Serializable {
 		this.isDeleted = isDeleted;
 	}
 
-	public Questions(User user, Category category, String displayQuestion,
-			String questionDescription, char isRadio, String summary,
-			Date createdDate, Date updatedDate, char isDeleted) {
-		this.user = user;
+	public Questions(Long userId, Category category, String displayQuestion,
+			String questionDescription, char isRadio, char displaySummary,
+			Date createdDate, Date updatedDate, char isDeleted, String userType) {
+		this.userId = userId;
 		this.category = category;
 		this.displayQuestion = displayQuestion;
 		this.questionDescription = questionDescription;
 		this.isRadio = isRadio;
-		this.summary = summary;
+		this.displaySummary = displaySummary;
 		this.createdDate = createdDate;
 		this.updatedDate = updatedDate;
 		this.isDeleted = isDeleted;
+		this.userType=userType;
+	}
+
+	public String getUserType() {
+		return userType;
+	}
+
+	public void setUserType(String userType) {
+		this.userType = userType;
+	}
+
+	public void setUserId(Long userId) {
+		this.userId = userId;
 	}
 
 	public Long getQuestionId() {
@@ -60,12 +74,12 @@ public class Questions implements java.io.Serializable {
 		this.questionId = questionId;
 	}
 
-	public User getUser() {
-		return this.user;
+	public long getUserId() {
+		return this.userId;
 	}
 
-	public void setUser(User user) {
-		this.user = user;
+	public void setUserId(long userId) {
+		this.userId = userId;
 	}
 
 	public Category getCategory() {
@@ -100,12 +114,12 @@ public class Questions implements java.io.Serializable {
 		this.isRadio = isRadio;
 	}
 
-	public String getSummary() {
-		return this.summary;
+	public char getDisplaySummary() {
+		return this.displaySummary;
 	}
 
-	public void setSummary(String summary) {
-		this.summary = summary;
+	public void setDisplaySummary(char displaySummary) {
+		this.displaySummary = displaySummary;
 	}
 
 	public Date getCreatedDate() {
