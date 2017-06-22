@@ -65,7 +65,8 @@ public class DisplayQuestionsAction extends ActionSupport implements SessionAwar
 		 populatedSolutions = (List<Solutions>) userSession.get("POPULATED_LIST");
 		 if(populatedSolutions==null)
 		 {
-			 userSession.put("POPULATED_LIST",new ArrayList<Solutions>());
+			 populatedSolutions = new ArrayList<Solutions>();
+			 userSession.put("POPULATED_LIST",populatedSolutions);
 		 }
 		 
 		if(currentSolution!=null)
