@@ -14,7 +14,7 @@ public class Solutions implements java.io.Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	private Long soultionId;
-	private Questions questions;
+	private long questions;
 	private long questionerId;
 	private long userId;
 	private Character radioValue;
@@ -26,7 +26,7 @@ public class Solutions implements java.io.Serializable {
 	public Solutions() {
 	}
 
-	public Solutions(Questions questions, long questionerId, long userId,
+	public Solutions(long questions, long questionerId, long userId,
 			Date createdDate, Date updatedDate, char isDeleted) {
 		this.questions = questions;
 		this.questionerId = questionerId;
@@ -36,7 +36,7 @@ public class Solutions implements java.io.Serializable {
 		this.isDeleted = isDeleted;
 	}
 
-	public Solutions(Questions questions, long questionerId, long userId,
+	public Solutions(long questions, long questionerId, long userId,
 			Character radioValue, String commentValue, Date createdDate,
 			Date updatedDate, char isDeleted) {
 		this.questions = questions;
@@ -57,11 +57,11 @@ public class Solutions implements java.io.Serializable {
 		this.soultionId = soultionId;
 	}
 
-	public Questions getQuestions() {
+	public long getQuestions() {
 		return this.questions;
 	}
 
-	public void setQuestions(Questions questions) {
+	public void setQuestions(long questions) {
 		this.questions = questions;
 	}
 

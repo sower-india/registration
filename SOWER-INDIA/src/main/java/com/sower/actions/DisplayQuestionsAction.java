@@ -1,6 +1,8 @@
 package com.sower.actions;
 
+import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -9,10 +11,12 @@ import org.apache.struts2.interceptor.SessionAware;
 
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
+import com.sower.common.constants.CommonConstants;
 import com.sower.pojo.Person;
 import com.sower.rdbms.dao.HibernateDAO;
 import com.sower.rdbms.pojo.Questions;
 import com.sower.rdbms.pojo.Solutions;
+import com.sower.util.DateUtil;
 import com.sower.util.RegistrationUtil;
 
 public class DisplayQuestionsAction extends ActionSupport implements SessionAware {
@@ -57,12 +61,22 @@ public class DisplayQuestionsAction extends ActionSupport implements SessionAwar
 	}
 	
 	@SuppressWarnings("unchecked")
-	public String questionsUpload()
+	public String questionsUpload() throws ParseException
 	{
-		 currentSolution.setQuestionerId(getQuestionId());
-
 		 userSession = ActionContext.getContext().getSession();
 		 populatedSolutions = (List<Solutions>) userSession.get("POPULATED_LIST");
+		 Date currentDate=DateUtil.getCurrentDate();
+		 
+		 currentSolution.setQuestions(getQuestionId());
+		 currentSolution.setQuestionerId(Long.parseLong(selectedUser));
+		 currentSolution.setIsDeleted('N');
+		 final long userId = ((Person)userSession.get(CommonConstants.KEY_SESSION_USER)).getUserId();
+		 currentSolution.setUserId(userId);
+		 
+		 
+		 currentSolution.setCreatedDate(currentDate);
+		 currentSolution.setUpdatedDate(currentDate);
+		 
 		 if(populatedSolutions==null)
 		 {
 			 populatedSolutions = new ArrayList<Solutions>();
@@ -82,6 +96,11 @@ public class DisplayQuestionsAction extends ActionSupport implements SessionAwar
 	public String displayFarmerQuestion()
 	{
 		userSession = ActionContext.getContext().getSession(); 
+		if(currentSolution!=null)
+		{
+			currentSolution=new Solutions();
+			setSelectedUser(selectedUser);
+		}
 		questions=(List<Questions>) userSession.get("QUESTION_LIST");
 		if(questions==null)
 		{

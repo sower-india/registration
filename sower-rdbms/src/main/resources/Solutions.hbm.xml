@@ -8,9 +8,9 @@
             <column name="SOULTION_ID" />
             <generator class="identity" />
         </id>
-        <many-to-one name="questions" class="com.sower.rdbms.pojo.Questions" fetch="select">
+        <property name="questions" type="long">
             <column name="QUESTION_ID" not-null="true" />
-        </many-to-one>
+        </property>
         <property name="questionerId" type="long">
             <column name="QUESTIONER_ID" not-null="true" />
         </property>
