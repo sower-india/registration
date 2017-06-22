@@ -11,6 +11,7 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 
 import com.sower.rdbms.pojo.Category;
+import com.sower.rdbms.pojo.Questions;
 import com.sower.rdbms.pojo.User;
 import com.sower.rdbms.pojo.UserAccess;
 
@@ -190,7 +191,7 @@ import com.sower.rdbms.pojo.UserAccess;
 	    {
 	    	Session session = sessionFactory.openSession();
 
-	    	String sql = "select * from user u join user_access ua on u.access_id=ua.access_id where access_name = '"+accessType+"';";
+	    	String sql = "select u.* from user u join user_access ua on u.access_id=ua.access_id where access_name = '"+accessType+"';";
 	    	SQLQuery sqlQuery = session.createSQLQuery(sql);
 	    	sqlQuery.addEntity(User.class);
 	    	
@@ -199,4 +200,22 @@ import com.sower.rdbms.pojo.UserAccess;
 	    	return users;
 	    	
 	    }
+	    
+
+	    @SuppressWarnings("unchecked")
+	    public static List<Questions> getUserTypeQuestions(final String userType)
+	    {
+	    	Session session = sessionFactory.openSession();
+
+	    	String sql = "select * from sower.questions where user_type = '"+userType+"';";
+	    	SQLQuery sqlQuery = session.createSQLQuery(sql);
+	    	sqlQuery.addEntity(Questions.class);
+	    	
+			List<Questions> questions=(List<Questions>)sqlQuery.list();
+	    	
+	    	return questions;
+	    	
+	    }
+	    
+	    
 }
