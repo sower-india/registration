@@ -31,7 +31,7 @@ public class DisplayQuestionsAction extends ActionSupport implements SessionAwar
 	private List<String> yesNo = new ArrayList<String>();
 	private String inputYesNo;
 
-	private long questionId=0;
+	private String questionId;
 	private String displayQuestion;
 	List<Solutions> populatedSolutions = new ArrayList<Solutions>();
 	private Solutions currentSolution;
@@ -48,6 +48,11 @@ public class DisplayQuestionsAction extends ActionSupport implements SessionAwar
 			populatedSolutions = (List<Solutions>) userSession.get("POPULATED_LIST");
 			if(populatedSolutions!=null && !populatedSolutions.isEmpty())
 			{
+				if(currentSolution!=null)
+				{
+					populateCurrentSolution();
+					populatedSolutions.add(currentSolution);
+				}
 		for (Solutions solution : populatedSolutions) {
 			HibernateDAO.save(solution);
 		}
@@ -65,18 +70,7 @@ public class DisplayQuestionsAction extends ActionSupport implements SessionAwar
 	{
 		 userSession = ActionContext.getContext().getSession();
 		 populatedSolutions = (List<Solutions>) userSession.get("POPULATED_LIST");
-		 Date currentDate=DateUtil.getCurrentDate();
-		 
-		 currentSolution.setQuestions(getQuestionId());
-		 currentSolution.setQuestionerId(Long.parseLong(selectedUser));
-		 currentSolution.setIsDeleted('N');
-		 final long userId = ((Person)userSession.get(CommonConstants.KEY_SESSION_USER)).getUserId();
-		 currentSolution.setUserId(userId);
-		 
-		 
-		 currentSolution.setCreatedDate(currentDate);
-		 currentSolution.setUpdatedDate(currentDate);
-		 
+		
 		 if(populatedSolutions==null)
 		 {
 			 populatedSolutions = new ArrayList<Solutions>();
@@ -123,7 +117,7 @@ public class DisplayQuestionsAction extends ActionSupport implements SessionAwar
 		iterator.remove();
 		userType=currentQuestion.getUserType();
 		displayQuestion=currentQuestion.getDisplayQuestion();
-		questionId=currentQuestion.getQuestionId();
+		questionId=String.valueOf(currentQuestion.getQuestionId());
 		}
 		userList=(List<Person>) userSession.get("USER_LIST_"+getUserType());
 		
@@ -186,7 +180,7 @@ public class DisplayQuestionsAction extends ActionSupport implements SessionAwar
 		this.currentSolution = currentSolution;
 	}
 
-	public void setQuestionId(int questionId) {
+	public void setQuestionId(String questionId) {
 		this.questionId = questionId;
 	}
 
@@ -238,19 +232,35 @@ public class DisplayQuestionsAction extends ActionSupport implements SessionAwar
 		this.hasMoreQuestions = hasMoreQuestions;
 	}
 
-	public long getQuestionId() {
+	public String getQuestionId() {
 		return questionId;
 	}
 
-	public void setQuestionId(long questionId) {
-		this.questionId = questionId;
-	}
-	
 	public String getInputYesNo() {
 		return inputYesNo;
 	}
 
 	public void setInputYesNo(String inputYesNo) {
 		this.inputYesNo = inputYesNo;
+	}
+	
+	@SuppressWarnings("unchecked")
+	private void populateCurrentSolution() throws ParseException
+	{
+		if(currentSolution!=null)
+		{
+		 userSession = ActionContext.getContext().getSession();
+		 populatedSolutions = (List<Solutions>) userSession.get("POPULATED_LIST");
+		 Date currentDate=DateUtil.getCurrentDate();
+		 
+		 currentSolution.setQuestions(Long.parseLong(getQuestionId()));
+		 currentSolution.setQuestionerId(Long.parseLong(selectedUser));
+		 currentSolution.setIsDeleted('N');
+		 final long userId = ((Person)userSession.get(CommonConstants.KEY_SESSION_USER)).getUserId();
+		 currentSolution.setUserId(userId);
+		 currentSolution.setCreatedDate(currentDate);
+		 currentSolution.setUpdatedDate(currentDate);
+		}
+		
 	}
 }
