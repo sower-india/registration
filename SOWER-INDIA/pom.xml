@@ -35,6 +35,15 @@
 					<target>${jdk.version}</target>
 				</configuration>
 			</plugin>
+			<plugin>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>3.1.0</version>
+				<configuration>
+					<packagingExcludes>
+						WEB-INF/lib/javassist-3.11.0.GA.jar
+					</packagingExcludes>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 	<dependencies>

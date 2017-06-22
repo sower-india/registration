@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.sower.common.ListOptions;
 import com.sower.pojo.Person;
+import com.sower.rdbms.pojo.Questions;
 import com.sower.rdbms.pojo.User;
 import com.sower.rdbms.pojo.UserAccess;
 import com.sower.rdbms.util.HibernateUtil;
@@ -52,6 +53,12 @@ public class RegistrationUtil {
 			}
 		}
 		return persons;
+	}
+
+	public static List<Questions> getQuestions(String userType) 
+	{
+		List<Questions> userTypeQuestions = HibernateUtil.getUserTypeQuestions(userType);
+		return userTypeQuestions;
 	}
 
 }	

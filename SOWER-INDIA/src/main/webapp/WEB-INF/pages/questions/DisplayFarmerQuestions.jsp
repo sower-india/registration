@@ -16,12 +16,20 @@
 			</a>
 		</form:if>
 		
-		<form:form action="questionsUpload" namespace="/" method="POST" enctype="multipart/form-data">
+		<form:form action="submitQuestions" namespace="/" method="POST" enctype="multipart/form-data">
 		
-		<form:select label="Farmer" headerKey="-1"
-				headerValue="Select Farmer" list="userList" listKey="displayName" listValue="userId"
-				name="selectedUser" />
+		<form:select label="Farmer" headerKey="-1" headerValue="Select Farmer" list="userList" listKey="userId" listValue="displayName" name="selectedUser" />
+		<form:property value="currentQuestion.displayQuestion"/>
+		<form:hidden value="questionId"/>
+		<form:if test="%{currentQuestion.isRadio == 'Y'}">
+			<form:radio list="yesNo" name="currentSolution.radioValue" value = "defaultYesNo"></form:radio>
+		</form:if>
 		
+			<form:textfield name ="currentSolution.commentValue" label="summary" ></form:textfield>
+		
+		<form:if test="%{hasMoreQuestions}">
+			<form:submit name="addQuestion" value="next>>" action="questionsUpload" />
+		</form:if>
 			<form:submit value="submit" name="submit" />
 		</form:form>
 	</div>

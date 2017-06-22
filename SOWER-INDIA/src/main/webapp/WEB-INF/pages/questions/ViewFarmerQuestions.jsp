@@ -17,11 +17,10 @@
 		</form:if>
 		
 		<form:form action="farmerFileUploadQuestions" namespace="/" method="POST" enctype="multipart/form-data">
-		<form:hidden name="userType" value ="FARMER"></form:hidden>
-		<form:url action="displayFarmerQuestion" var="displayFarmerQuestion">
+		<form:url action="displayFarmerQuestion" var="urlTag">
 		<form:param name="userType">FARMER</form:param>
 		</form:url>
-			<a href="%{displayFarmerQuestion}" >View Farmer Questions</a> <br/>
+			<a href="<form:property value="#urlTag" />" >View Farmer Questions</a> <br/>
 			<b>OR</b> <br/>
 			<a href="<form:url action="addFarmerQuestion" />">Add Farmer Question</a> <br />
 			<b>OR</b><br/>

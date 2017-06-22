@@ -7,8 +7,25 @@
 	<constant name="struts.devMode" value="true" />
 
 	<constant name="struts.custom.i18n.resources" value="global" />
+	<constant name="struts.mapper.action.prefix.enabled" value="true" />
 
 	<package name="questions" namespace="/" extends="struts-default">
+
+
+		<action name="questionsUpload" class="com.sower.actions.DisplayQuestionsAction"
+			method="questionsUpload">
+			<result name="success">WEB-INF/pages/questions/DisplayFarmerQuestions.jsp</result>
+			<result name="failure">WEB-INF/pages/questions/DisplayFarmerQuestions.jsp</result>
+			<result name="UploadedSuccessfully">WEB-INF/pages/questions/Thanks.jsp</result>
+			
+		</action>
+
+<action name="submitQuestions" class="com.sower.actions.DisplayQuestionsAction"
+			method="submitQuestions">
+			<result name="success">WEB-INF/pages/questions/ThankYouFarmer.jsp</result>
+			<result name="failure">WEB-INF/pages/questions/FailureThankYouFarmer.jsp</result>
+		</action>
+
 
 		<action name="createCategory">
 			<result name="success">WEB-INF/pages/CreateCategory.jsp</result>
@@ -33,28 +50,35 @@
 			<result name="failure">WEB-INF/pages/questions/ViewFarmerQuestions.jsp
 			</result>
 		</action>
-		
-		
+
+
 		<action name="displayFarmerQuestion" class="com.sower.actions.DisplayQuestionsAction"
 			method="displayFarmerQuestion">
-			<result name="success">WEB-INF/pages/questions/DisplayFarmerQuestions.jsp </result>
-			<result name="failure">WEB-INF/pages/questions/DisplayFarmerQuestions.jsp </result>
+			<result name="success">WEB-INF/pages/questions/DisplayFarmerQuestions.jsp
+			</result>
+			<result name="failure">WEB-INF/pages/questions/DisplayFarmerQuestions.jsp
+			</result>
 		</action>
 
 		<action name="viewTransportQuestions" class="com.sower.actions.QuestionsAction"
 			method="viewTransportQuestions">
-			<result name="success">WEB-INF/pages/questions/ViewTransportQuestions.jsp </result>
-			<result name="failure">WEB-INF/pages/questions/ViewTransportQuestions.jsp </result>
+			<result name="success">WEB-INF/pages/questions/ViewTransportQuestions.jsp
+			</result>
+			<result name="failure">WEB-INF/pages/questions/ViewTransportQuestions.jsp
+			</result>
 		</action>
 
 		<action name="viewConsumerQuestions" class="com.sower.actions.QuestionsAction"
 			method="viewConsumerQuestions">
-			<result name="success">WEB-INF/pages/questions/ViewConsumerQuestions.jsp </result>
-			<result name="failure">WEB-INF/pages/questions/ViewConsumerQuestions.jsp </result>
+			<result name="success">WEB-INF/pages/questions/ViewConsumerQuestions.jsp
+			</result>
+			<result name="failure">WEB-INF/pages/questions/ViewConsumerQuestions.jsp
+			</result>
 		</action>
 
 
-		<action name="farmerFileUploadQuestions" class="com.sower.actions.FileUploadAction" method="farmerFileUploadQuestions">
+		<action name="farmerFileUploadQuestions" class="com.sower.actions.FileUploadAction"
+			method="farmerFileUploadQuestions">
 			<interceptor-ref name="exception" />
 			<interceptor-ref name="i18n" />
 			<interceptor-ref name="fileUpload">
@@ -71,8 +95,10 @@
 				<param name="excludeMethods">input,back,cancel,browse</param>
 			</interceptor-ref>
 
-			<result name="success">WEB-INF/pages/questions/ViewFarmerQuestions.jsp</result>
-			<result name="input">WEB-INF/pages/questions/ViewFarmerQuestions.jsp</result>
+			<result name="success">WEB-INF/pages/questions/ViewFarmerQuestions.jsp
+			</result>
+			<result name="input">WEB-INF/pages/questions/ViewFarmerQuestions.jsp
+			</result>
 
 		</action>
 
