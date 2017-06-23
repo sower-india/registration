@@ -8,7 +8,7 @@
 </head>
 <body>
 	<div style="text-align: center">
-		<h2>Select Questions Category</h2>
+		<h2>View Farmer Questions</h2>
 		<form:if test="#session.SESSION_USER.userName != null">
 			<a href="#" class="dropdown-toggle" data-toggle="dropdown"> <b>
 			<form:property value="%{#session.SESSION_USER.userName}" />

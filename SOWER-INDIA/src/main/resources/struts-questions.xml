@@ -20,7 +20,7 @@
 			
 		</action>
 
-<action name="submitQuestions" class="com.sower.actions.DisplayQuestionsAction"
+		<action name="submitQuestions" class="com.sower.actions.DisplayQuestionsAction"
 			method="submitQuestions">
 			<result name="success">WEB-INF/pages/questions/ThankYouFarmer.jsp</result>
 			<result name="failure">WEB-INF/pages/questions/FailureThankYouFarmer.jsp</result>
@@ -59,6 +59,17 @@
 			<result name="failure">WEB-INF/pages/questions/DisplayFarmerQuestions.jsp
 			</result>
 		</action>
+		
+		<action name="addFarmerQuestion" class ="com.sower.actions.QuestionsAction" method ="addFarmerQuestion">
+			<result name="success">WEB-INF/pages/questions/AddFarmerQuestion.jsp </result>
+			<result name="failure">WEB-INF/pages/questions/AddFarmerQuestion.jsp </result>
+		</action>
+		
+		<action name="createFarmerQuestion" class ="com.sower.actions.QuestionsAction" method ="createFarmerQuestion">
+			<result name="success">WEB-INF/pages/questions/AddFarmerQuestion.jsp </result>
+			<result name="failure">WEB-INF/pages/questions/AddFarmerQuestion.jsp </result>
+		</action>
+		
 
 		<action name="viewTransportQuestions" class="com.sower.actions.QuestionsAction"
 			method="viewTransportQuestions">
