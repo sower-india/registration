@@ -23,11 +23,11 @@
 		</form:if>
 		
 		<form:form action="populateCategory">
-			<form:textfield name="categoryName" label="Category Name " />
-			<form:textfield name="displayCategoryName" label="Display Category Name " />
-			<form:textfield name="categoryDescription" label="Category Description " />
-			<form:submit/>
-			<a href="<form:url action="adminPage" />">View Admin Page</a>
+			<form:textfield name="categoryName" label="Category Name " cssClass="mytextfield"/>
+			<form:textfield name="displayCategoryName" label="Display Category Name " cssClass="mytextfield"/>
+			<form:textfield name="categoryDescription" label="Category Description " cssClass="mytextfield"/>
+			<form:submit cssClass="submitCSS"/>
+			<a href="<form:url action="adminPage" />" css="urlCSS">View Admin Page</a>
 		</form:form>
 	</div>
 </body>

@@ -25,12 +25,12 @@
 			<form:radio list="yesNo" name="currentSolution.radioValue" value = "defaultYesNo"></form:radio>
 		</form:if>
 		
-			<form:textfield name ="currentSolution.commentValue" label="summary" ></form:textfield>
+			<form:textfield name ="currentSolution.commentValue" label="summary" cssClass="mySummarytextfield"></form:textfield>
 		
 		<form:if test="%{hasMoreQuestions}">
 			<form:submit name="addQuestion" value="next>>" action="questionsUpload" />
 		</form:if>
-			<form:submit value="submit" name="submit" />
+			<form:submit value="submit" name="submit" cssClass="submitCSS"/>
 		</form:form>
 	</div>
 </body>

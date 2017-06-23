@@ -20,13 +20,13 @@
 			</a>
 		</form:if>
 		
-		<form:form action="createFarmerQuestion">
-		<form:textfield name="question" label="Enter Question " />
-		<form:textfield name="displayQuestion" label="Enter Display Question " />
-		<form:textfield name="category" label="Enter Question Category" />
-		<form:textfield name="description" label="Enter Question Description" />
-		<form:radio list="radioList" name="isRadio" value = "defaultRadioList" label="Show Yes/No"></form:radio>
-		<form:submit value="Create Question" name="submit" />
+		<form:form action="createFarmerQuestion" cssClass="formCSS">
+		<form:textfield name="question" label="Enter Question " cssClass="mytextfield"/>
+		<form:textfield name="displayQuestion" label="Enter Display Question " cssClass="mytextfield"/>
+		<form:textfield name="category" label="Enter Question Category" cssClass="mytextfield"/>
+		<form:textfield name="description" label="Enter Question Description" cssClass="mytextfield"/>
+		<form:radio list="radioList" name="isRadio" value = "defaultRadioList" label="Show Yes/No" cssClass="myradio"></form:radio>
+		<form:submit value="Create Question" name="submit" cssClass="submitCSS" />
 		</form:form>
 	</div>
 </body>

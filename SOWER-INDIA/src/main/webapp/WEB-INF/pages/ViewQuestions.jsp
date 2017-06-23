@@ -5,6 +5,7 @@
 <html>
 <head>
 <title>SOWER-INDIA</title>
+<link rel="stylesheet" type="text/css" href="css/sower.css">
 </head>
 <body>
 	<div style="text-align: center">
@@ -18,9 +19,9 @@
 		</form:if>
 		
 		<form:form action="">
-			<a href="<form:url action="viewFarmerQuestions" />">Farmer Questions</a><br/>
-			<a href="<form:url action="viewTransportQuestions" />">Transport Questions</a><br/>
-			<a href="<form:url action="viewConsumerQuestions" />">Consumer Questions</a><br/>
+			<a href="<form:url action="viewFarmerQuestions" />" class="urlCSS">Farmer Questions</a><br/>
+			<a href="<form:url action="viewTransportQuestions" />" class="urlCSS">Transport Questions</a><br/>
+			<a href="<form:url action="viewConsumerQuestions" />" class="urlCSS">Consumer Questions</a><br/>
 		</form:form>
 	</div>
 </body>

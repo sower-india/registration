@@ -20,12 +20,12 @@
 		<form:url action="displayFarmerQuestion" var="urlTag">
 		<form:param name="userType">FARMER</form:param>
 		</form:url>
-			<a href="<form:property value="#urlTag" />" >View Farmer Questions</a> <br/>
+			<a href="<form:property value="#urlTag" />" class="urlCSS">View Farmer Questions</a> <br/>
 			<b>OR</b> <br/>
-			<a href="<form:url action="addFarmerQuestion" />">Add Farmer Question</a> <br />
+			<a href="<form:url action="addFarmerQuestion" />" class="urlCSS">Add Farmer Question</a> <br />
 			<b>OR</b><br/>
 			<form:file name="farmerFileUpload" label="Select former File to upload" size="40" /> <br />
-			<form:submit value="submit" name="submit" />
+			<form:submit value="submit" name="submit" cssClass="submitCSS"/>
 		</form:form>
 	</div>
 </body>

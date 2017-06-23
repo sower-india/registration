@@ -5,6 +5,7 @@
 <html>
 <head>
 <title>SOWER-INDIA</title>
+<link rel="stylesheet" type="text/css" href="css/sower.css">
 </head>
 <body>
 	<div style="text-align: center">
