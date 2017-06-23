@@ -79,6 +79,7 @@ public class DisplayQuestionsAction extends ActionSupport implements SessionAwar
 		 
 		if(currentSolution!=null)
 		{
+			populateCurrentSolution();
 			populatedSolutions.add(currentSolution);
 			userSession.put("POPULATED_LIST",populatedSolutions);
 		}
@@ -93,6 +94,7 @@ public class DisplayQuestionsAction extends ActionSupport implements SessionAwar
 		if(currentSolution!=null)
 		{
 			currentSolution=new Solutions();
+//			currentSolution.setCommentValue("");
 			setSelectedUser(selectedUser);
 		}
 		questions=(List<Questions>) userSession.get("QUESTION_LIST");

@@ -20,7 +20,7 @@
 		
 		<form:select label="Farmer" headerKey="-1" headerValue="Select Farmer" list="userList" listKey="userId" listValue="displayName" name="selectedUser" />
 		<form:property value="currentQuestion.displayQuestion"/>
-		<form:hidden name="questionId" value="questionId"/>
+		<form:hidden name="questionId" value="%{questionId}"/>
 		<form:if test="%{currentQuestion.isRadio == 'Y'}">
 			<form:radio list="yesNo" name="currentSolution.radioValue" value = "defaultYesNo"></form:radio>
 		</form:if>
